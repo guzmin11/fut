@@ -447,12 +447,13 @@
       Tenha acesso a atividades prontas para aquecimento, passe, domínio, condução, chute, drible, coordenação e jogos reduzidos, mesmo com turmas agitadas ou níveis diferentes.
     </p>
 
-    <div class="video-wrapper">
+    <div class="video-wrapper" style="position:relative;">
       <div class="video-ratio">
-        <!-- VSL YouTube Embed -->
+        <!-- VSL YouTube Embed com JS API habilitada -->
         <iframe
+          id="vsl-iframe"
           style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
-          src="https://www.youtube.com/embed/GShwsOHKpTA?autoplay=1&mute=1"
+          src="https://www.youtube.com/embed/GShwsOHKpTA?autoplay=1&mute=1&enablejsapi=1"
           title="200 Dinâmicas Para Aulas de Futsal Infantil"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -460,7 +461,63 @@
           allowfullscreen>
         </iframe>
       </div>
+
+      <!-- Overlay "Toque para ativar o som" -->
+      <div id="vsl-unmute-overlay" style="
+        position:absolute;
+        top:0;left:0;width:100%;height:100%;
+        z-index:10;
+        cursor:pointer;
+        display:flex;
+        align-items:flex-end;
+        justify-content:center;
+        padding-bottom:18px;
+        pointer-events:auto;
+        transition:opacity .4s ease;
+      ">
+        <div style="
+          background:rgba(0,0,0,0.65);
+          backdrop-filter:blur(4px);
+          border-radius:50px;
+          padding:10px 22px;
+          color:#fff;
+          font-family:'Poppins',sans-serif;
+          font-size:.9rem;
+          font-weight:700;
+          display:flex;
+          align-items:center;
+          gap:8px;
+          box-shadow:0 4px 16px rgba(0,0,0,.35);
+          letter-spacing:.3px;
+          animation:pulseSoft 2s ease-in-out infinite;
+        ">
+          🔇 Toque para ativar o som
+        </div>
+      </div>
     </div>
+
+    <script>
+      (function () {
+        var overlay = document.getElementById('vsl-unmute-overlay');
+        var iframe  = document.getElementById('vsl-iframe');
+        if (!overlay || !iframe) return;
+
+        function unmute() {
+          // Desmuta via YouTube iFrame API (postMessage)
+          iframe.contentWindow.postMessage(
+            JSON.stringify({ event: 'command', func: 'unMute', args: [] }),
+            '*'
+          );
+          // Fade out e remove o overlay
+          overlay.style.opacity = '0';
+          overlay.style.pointerEvents = 'none';
+          setTimeout(function () { overlay.style.display = 'none'; }, 420);
+        }
+
+        overlay.addEventListener('click',      unmute);
+        overlay.addEventListener('touchstart',  unmute, { passive: true });
+      })();
+    </script>
 
     <a href="#plans" class="cta-button hero-cta" data-scroll="plans">
       <i class="fas fa-futbol"></i> QUERO AGORA!
