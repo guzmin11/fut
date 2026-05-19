@@ -674,6 +674,11 @@
           setTimeout(function () { overlay.style.display = 'none'; }, 420);
         }
 
+        iframe.addEventListener('load', function () {
+          sendYoutubeCommand('mute');
+          sendYoutubeCommand('playVideo');
+        });
+
         overlay.addEventListener('click',      unmute);
         overlay.addEventListener('touchstart',  unmute, { passive: true });
       })();
