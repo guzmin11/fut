@@ -285,12 +285,12 @@
     .countdown-plans .time-number { display: block; font-size: 2rem; font-weight: 700; color: #1D4ED8; line-height: 1; margin-bottom: 5px; }
     .countdown-plans .time-label { font-size: .75rem; color: #666; font-weight: 600; text-transform: uppercase; letter-spacing: .5px; }
 
-    /* 2-card plans grid */
+    /* Premium offer card */
     .plans-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       gap: 24px;
-      max-width: 820px;
+      max-width: 460px;
       margin: 0 auto;
       align-items: start;
     }
@@ -937,37 +937,19 @@
       </div>
     </div>
 
-    <h2 class="section-title">Escolha Seu Plano</h2>
+    <h2 class="section-title">Tenha Suas Aulas Prontas Hoje</h2>
 
     <div class="plans-grid">
 
-      <!-- ── Card Básico ── -->
-      <div class="plan-card">
-        <h3>Plano Básico</h3>
-        <div class="price">
-          <span class="old-price">De R$ 19,90</span>
-          <span class="new-price" style="color:#1D4ED8;">R$10,00</span>
-        </div>
-        <div class="savings-amount">Pagamento único · Acesso imediato</div>
-        <ul class="plan-features">
-          <li><i class="fas fa-check"></i> 100 Dinâmicas de Futsal Infantil em PDF</li>
-          <li><i class="fas fa-check"></i> Separadas por objetivo e faixa etária</li>
-          <li><i class="fas fa-check"></i> Acesso digital imediato no e-mail</li>
-        </ul>
-        <button id="btn-basico" class="plan-button" style="background:linear-gradient(135deg,#1D4ED8 0%,#3B82F6 100%);box-shadow:0 6px 20px rgba(29,78,216,.4);">
-          QUERO O PLANO BÁSICO
-        </button>
-      </div>
-
-      <!-- ── Card Completo ── -->
+      <!-- ── Card Premium ── -->
       <div class="plan-card popular">
         <div class="popular-badge">MAIS POPULAR</div>
-        <h3>Plano Completo</h3>
+        <h3>Plano Premium</h3>
         <div class="price">
           <span class="old-price">Valor total R$ 189,90</span>
-          <span class="new-price">R$19,90</span>
+          <span class="new-price">R$15,00</span>
         </div>
-        <div class="savings-amount">Pagamento único · Ou 2x de R$ 10,76</div>
+        <div class="savings-amount">Pagamento único · Acesso imediato</div>
         <div class="premium-social-proof">
           <p class="purchase-count">+1.285 professores já transformaram seus treinos</p>
         </div>
@@ -986,7 +968,7 @@
           <li class="bonus-item"><i class="fas fa-gift"></i> BÔNUS: Planejamento 4 Semanas <span style="text-decoration:line-through;opacity:.6;font-size:.85em;">R$ 37</span></li>
         </ul>
         <a href="#" class="plan-button main-checkout-btn">
-          SIM, QUERO O PLANO COMPLETO
+          SIM, QUERO O PLANO PREMIUM
         </a>
         <div class="payment-methods">
           <span class="payment-badge-pix">
@@ -1120,7 +1102,7 @@
     /* ==========================================================================
        CONFIGURAÇÃO GLOBAL: Altere aqui o link da sua página de vendas / checkout
        ========================================================================== */
-    const CONFIG_CHECKOUT_URL       = "https://checkout.educacaodivertida.site/VCCL1O8SD2EV";
+    const CONFIG_CHECKOUT_URL       = "https://checkout.educacaodivertida.site/VCCL1O8SD2EW";
     const CONFIG_CHECKOUT_BASICO    = "https://checkout.educacaodivertida.site/VCCL1O8SD29E"; // ← troque pelo link do plano básico
     const CONFIG_CHECKOUT_COMPLETO  = "https://checkout.educacaodivertida.site/VCCL1O8SD2EW"; // ← troque pelo link do plano completo (R$14,90 upsell)
 
